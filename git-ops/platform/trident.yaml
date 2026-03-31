@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: trident
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://netapp.github.io/trident-helm-chart
+    chart: trident-operator
+    targetRevision: 24.2.0                # Helm chart version
+    helm:
+      values: |
+        tridentAutosupportImage: netapp/trident-autosupport:24.2
+      # Alternatively, use a values file: valuesFiles:
+      # - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: trident
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true               # Creates namespace if it doesn't exist
