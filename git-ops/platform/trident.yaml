@@ -11,7 +11,7 @@ spec:
     targetRevision: 100.2602.0
     helm:
       values: |
-        tridentAutosupportImage: netapp/trident-autosupport:24.2
+        tridentAutosupportImage: netapp/trident-autosupport:26.02.0
       # Alternatively, use a values file: valuesFiles:
       # - values.yaml
   destination:
