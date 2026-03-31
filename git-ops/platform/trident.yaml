@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://netapp.github.io/trident-helm-chart
     chart: trident-operator
-    targetRevision: 24.2.0                # Helm chart version
+    targetRevision: 100.2602.0
     helm:
       values: |
         tridentAutosupportImage: netapp/trident-autosupport:24.2
